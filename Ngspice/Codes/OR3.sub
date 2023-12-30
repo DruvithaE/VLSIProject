@@ -1,0 +1,8 @@
+.subckt OR3 a b c out vdd gnd 
+
+    .include OR.sub
+    X1 a b y vdd gnd OR
+    X2 y c out vdd gnd OR
+
+
+.ends OR3

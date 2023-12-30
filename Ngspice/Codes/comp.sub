@@ -1,0 +1,44 @@
+.subckt comp y4 y3 y2 y1 y0 a3 a2 a1 a0 b3 b2 b1 b0 vdd gnd
+
+    .include INV.sub
+    .include AND.sub
+    .include OR.sub
+    .include AND3.sub
+    .include OR3.sub
+    X1 a0 b0 ab0 vdd gnd AND
+    X2 a1 b1 ab1 vdd gnd AND
+    X3 a2 b2 ab2 vdd gnd AND
+    X4 a3 b3 ab3 vdd gnd AND
+    X5 a0 an0 vdd gnd INV
+    X6 a1 an1 vdd gnd INV
+    X7 a2 an2 vdd gnd INV
+    X8 a3 an3 vdd gnd INV
+    X0 b0 bn0 vdd gnd INV
+    X9 b1 bn1 vdd gnd INV
+    X10 b2 bn2 vdd gnd INV
+    X11 b3 bn3 vdd gnd INV
+    X12 an0 bn0 abn0 vdd gnd AND
+    X13 an1 bn1 abn1 vdd gnd AND
+    X14 an2 bn2 abn2 vdd gnd AND
+    X15 an3 bn3 abn3 vdd gnd AND
+    X16 ab0 abn0 i0 vdd gnd OR
+    X17 ab1 abn1 i1 vdd gnd OR
+    X18 ab2 abn2 i2 vdd gnd OR
+    X19 ab3 abn3 i3 vdd gnd OR
+    X20 gnd gnd y4 vdd gnd OR
+    X21 gnd gnd y3 vdd gnd OR
+    X22 a3 bn3 apbn3 vdd gnd AND
+    X23 a2 bn2 i3 apbn2 vdd gnd AND3
+    X24 a1 bn1 i3 apbnq vdd gnd AND3
+    X25 apbnq i2 apbn1 vdd gnd AND
+    X26 a0 bn0 i3 as vdd gnd AND3
+    X27 as i2 i1 apbn0 vdd gnd AND3
+    X28 apbn0 apbn1 apbn2 oj vdd gnd OR3
+    X29 oj apbn3 y2 vdd gnd OR
+    X30 i0 i1 i2 sdf vdd gnd AND3
+    X31 sdf i3 y1 vdd gnd AND
+    X32 y2 y2n vdd gnd INV
+    X33 y1 y1n vdd gnd INV
+    X34 y1n y2n y0 vdd gnd AND
+
+.ends comp

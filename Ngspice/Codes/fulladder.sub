@@ -1,0 +1,12 @@
+.subckt fulladder sum carry a b c vdd gnd
+
+    .include XOR.sub
+    .include AND.sub
+    X1 a b s0 vdd gnd XOR
+    X2 s0 c sum vdd gnd XOR
+    X3 a b p vdd gnd AND
+    X4 s0 c h vdd gnd AND
+    X5 p h carry vdd gnd XOR
+
+
+.ends fulladder

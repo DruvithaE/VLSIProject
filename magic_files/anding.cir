@@ -1,0 +1,124 @@
+* SPICE3 file created from anding.ext - technology: scmos
+
+.option scale=0.09u
+
+
+
+.include TSMC_180nm.txt
+
+
+.param SUPPLY = 1.8
+.param LAMBDA = 0.18u
+
+.param wn1 = {10*LAMBDA}
+.param wn2 = {10*LAMBDA}
+.param ln1 = {2*LAMBDA}
+.param ln2 = {2*LAMBDA}
+
+.param wp1 = wn1
+.param wp2 = wn1
+.param lp1 = {LAMBDA}
+.param lp2 = {LAMBDA}
+
+.global gnd
+
+Vdd vdd gnd 'SUPPLY'
+
+
+V_in_a a0 gnd PULSE(0 1.8 20ns 100ps 100ps 40ns 50ns)
+V_inla a1 gnd PULSE(0 1.8 0ns 100ps 100ps 30ns 50ns)
+VF a2 gnd PULSE(0 1.8 20ns 100ps 100ps 40ns 80ns)
+V_ia a3 gnd PULSE(0 1.8 0ns 100ps 100ps 30ns 50ns)
+VFs b1 gnd PULSE(0 1.8 0ns 100ps 100ps 40ns 80ns)
+Vb2 b2 gnd PULSE(0 1.8 20ns 100ps 100ps 30ns 50ns)
+Vb3 b3 gnd PULSE(0 1.8 0ns 100ps 100ps 30ns 50ns)
+Vb0 b0 gnd PULSE(0 1.8 20ns 100ps 100ps 40ns 80ns)
+
+
+
+M1000 a_35_n87# a1 a_35_n172# Gnd CMOSN w=15 l=7
++  ad=210 pd=58 as=570 ps=136
+M1001 a_35_n87# a1 vdd w_2_n102# CMOSP w=15 l=7
++  ad=615 pd=142 as=2524 ps=696
+M1002 a_35_n480# b3 vdd w_2_n495# CMOSP w=15 l=7
++  ad=615 pd=142 as=0 ps=0
+M1003 a_33_111# a0 vdd w_0_96# CMOSP w=15 l=7
++  ad=615 pd=142 as=0 ps=0
+M1004 y1 a_35_n87# gnd Gnd CMOSN w=16 l=8
++  ad=240 pd=62 as=1928 ps=496
+M1005 y2 a_35_n285# vdd w_171_n311# CMOSP w=16 l=8
++  ad=256 pd=64 as=0 ps=0
+M1006 a_35_n480# a3 vdd w_2_n495# CMOSP w=15 l=7
++  ad=0 pd=0 as=0 ps=0
+M1007 y3 a_35_n480# gnd Gnd CMOSN w=16 l=8
++  ad=240 pd=62 as=0 ps=0
+M1008 a_35_n565# b3 gnd Gnd CMOSN w=15 l=7
++  ad=570 pd=136 as=0 ps=0
+M1009 a_35_n480# a3 a_35_n565# Gnd CMOSN w=15 l=7
++  ad=210 pd=58 as=0 ps=0
+M1010 a_35_n285# b2 vdd w_2_n300# CMOSP w=15 l=7
++  ad=615 pd=142 as=0 ps=0
+M1011 a_35_n285# a2 vdd w_2_n300# CMOSP w=15 l=7
++  ad=0 pd=0 as=0 ps=0
+M1012 a_35_n87# b1 vdd w_2_n102# CMOSP w=15 l=7
++  ad=0 pd=0 as=0 ps=0
+M1013 y1 a_35_n87# vdd w_171_n113# CMOSP w=16 l=8
++  ad=256 pd=64 as=0 ps=0
+M1014 y3 a_35_n480# vdd w_171_n506# CMOSP w=16 l=8
++  ad=256 pd=64 as=0 ps=0
+M1015 a_33_111# b0 vdd w_0_96# CMOSP w=15 l=7
++  ad=0 pd=0 as=0 ps=0
+M1016 y2 a_35_n285# gnd Gnd CMOSN w=16 l=8
++  ad=240 pd=62 as=0 ps=0
+M1017 a_35_n370# b2 gnd Gnd CMOSN w=15 l=7
++  ad=570 pd=136 as=0 ps=0
+M1018 y0 a_33_111# gnd Gnd CMOSN w=16 l=8
++  ad=240 pd=62 as=0 ps=0
+M1019 a_35_n285# a2 a_35_n370# Gnd CMOSN w=15 l=7
++  ad=210 pd=58 as=0 ps=0
+M1020 y0 a_33_111# vdd w_169_85# CMOSP w=16 l=8
++  ad=256 pd=64 as=0 ps=0
+M1021 a_33_26# b0 gnd Gnd CMOSN w=15 l=7
++  ad=570 pd=136 as=0 ps=0
+M1022 a_35_n172# b1 gnd Gnd CMOSN w=15 l=7
++  ad=0 pd=0 as=0 ps=0
+M1023 a_33_111# a0 a_33_26# Gnd CMOSN w=15 l=7
++  ad=210 pd=58 as=0 ps=0
+C0 vdd Gnd 2.12fF
+C1 a_35_n480# Gnd 2.03fF
+C2 b3 Gnd 5.59fF
+C3 a3 Gnd 6.36fF
+C4 a_35_n285# Gnd 2.03fF
+C5 b2 Gnd 5.01fF
+C6 a2 Gnd 8.15fF
+C7 a_35_n87# Gnd 2.03fF
+C8 b1 Gnd 6.18fF
+C9 a1 Gnd 6.43fF
+C10 a_33_111# Gnd 2.03fF
+C11 b0 Gnd 6.25fF
+C12 a0 Gnd 9.89fF
+C13 w_171_n506# Gnd 2.78fF
+C14 w_2_n495# Gnd 5.39fF
+C15 w_171_n311# Gnd 2.78fF
+C16 w_2_n300# Gnd 5.39fF
+C17 w_171_n113# Gnd 2.78fF
+C18 w_2_n102# Gnd 5.39fF
+C19 w_169_85# Gnd 2.78fF
+C20 w_0_96# Gnd 5.39fF
+
+
+
+
+
+.tran 1n 160ns
+
+.control
+run
+plot v(y3)-6 v(y2)-4 v(y1)-2 v(y0) v(a3)+2 v(a2)+4 v(a1)+6 v(a0)+8 v(b3)+12 v(b2)+14 v(b1)+16 v(b0)+18 
+* plot v(b3) v(o12)+2 v(o1)+4 
+* plot v(b2) v(o22)+2 v(o23)+4 v(o3)+6
+* plot v(b1) v(o32)+2 v(o33)+4 v(o34)+6 v(o3)+8
+* plot v(b0) v(o42)+2 v(o43)+4 v(o44)+6 v(o45)+8 v(o4)+10
+* plot v(eq1)-6 v(eq2)-4 v(eq3)-2 v(eq4) v(a3)+2 v(a2)+4 v(a1)+6 v(a0)+8 v(b3)+12 v(b2)+14 v(b1)+16 v(b0)+18 
+.end
+.endc

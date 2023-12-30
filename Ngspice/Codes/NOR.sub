@@ -1,0 +1,7 @@
+.subckt NOR a b out vdd gnd
+
+    Mp1 out a gnd gnd CMOSN W = {wn1} L = {ln1}
+    Mp2 out b gnd gnd CMOSN W = {wn2} L = {ln2}
+    MN3 y a vdd vdd CMOSP W={wp1} L = {lp1}
+    MN4 out b y vdd CMOSP W={wp2} L = {lp2}
+.ends NOR

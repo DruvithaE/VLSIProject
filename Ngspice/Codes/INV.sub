@@ -1,0 +1,5 @@
+.subckt INV a out vdd gnd
+
+    Mp1 out a gnd gnd CMOSN W = {wn1} L = {ln1}
+    MN3 out a vdd vdd CMOSP W={wp1} L = {lp1}
+.ends INV

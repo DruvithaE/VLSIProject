@@ -1,0 +1,10 @@
+.subckt andg ouy5 ouy4 ouy3 ouy2 ouy1 A4 A3 A2 A1 B4 B3 B2 B1 vdd gnd
+
+    .include AND.sub
+    X6 gnd gnd ouy5 vdd gnd AND
+    X1 A1 B1 ouy1 vdd gnd AND
+    X2 A2 B2 ouy2 vdd gnd AND
+    X3 A3 B3 ouy3 vdd gnd AND
+    X4 A4 B4 ouy4 vdd gnd AND
+    
+.ends andg

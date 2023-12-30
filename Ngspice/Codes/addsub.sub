@@ -1,0 +1,64 @@
+.subckt addsub gf4 gf3 gf2 gf1 gf0 A3 A2 A1 A0 d3 d2 d1 d0 S0 vdd gnd
+    .include XOR.sub
+    .include fulladder.sub
+    .include INV.sub
+    .include AND3.sub
+    .include AND.sub
+    .include OR3.sub
+
+    .if (S0 == 1):
+      Vds M gnd 'SUPPLY'
+    .else:
+      Vdf M gnd '0'
+    .endif
+
+    X1 d3 M B3 vdd gnd XOR
+    X2 d2 M B2 vdd gnd XOR
+    X3 d1 M B1 vdd gnd XOR
+    X4 d0 M B0 vdd gnd XOR
+
+    X5 y0 c0 A0 B0 M vdd gnd fulladder
+    X6 y1 c1 A1 B1 c0 vdd gnd fulladder
+    X7 y2 c2 A2 B2 c1 vdd gnd fulladder
+    X8 y3 y4 A3 B3 c2 vdd gnd fulladder
+
+    X9 y0 k0 vdd gnd INV
+    X10 y1 k1 vdd gnd INV
+    X11 y2 k2 vdd gnd INV
+    X12 y3 k3 vdd gnd INV
+    X18 y4 k4 vdd gnd INV
+
+    X13 ou0 p0 k0 gnd M vdd gnd fulladder
+    X14 ou1 p1 k1 gnd p0 vdd gnd fulladder
+    X15 ou2 p2 k2 gnd p1 vdd gnd fulladder
+    X16 ou3 p3 k3 gnd p2 vdd gnd fulladder
+    X38 ou4 ou5 k4 gnd p3 vdd gnd fulladder
+    
+    X17 M k4 ou4 p14 vdd gnd AND3
+    X19 M k4 ou3 p13 vdd gnd AND3
+    X20 M k4 ou2 p12 vdd gnd AND3
+    X21 M k4 ou1 p11 vdd gnd AND3
+    X22 M k4 ou0 p10 vdd gnd AND3
+
+    X23 M y4 y3 p23 vdd gnd AND3
+    X24 M y4 y2 p22 vdd gnd AND3
+    X25 M y4 y1 p21 vdd gnd AND3
+    X26 M y4 y0 p20 vdd gnd AND3
+
+    X27 M Mn vdd gnd INV
+
+    X28 Mn y4 p34 vdd gnd AND
+    X29 Mn y3 p33 vdd gnd AND
+    X30 Mn y2 p32 vdd gnd AND
+    X31 Mn y1 p31 vdd gnd AND
+    X32 Mn y0 p30 vdd gnd AND
+
+    X33 p14 gnd p34 gf4 vdd gnd OR3
+    X34 p13 p23 p33 gf3 vdd gnd OR3
+    X35 p12 p22 p32 gf2 vdd gnd OR3
+    X36 p11 p21 p31 gf1 vdd gnd OR3
+    X37 p10 p20 p30 gf0 vdd gnd OR3
+
+.ends addsub
+
+

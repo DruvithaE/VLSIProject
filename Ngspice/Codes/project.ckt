@@ -1,0 +1,49 @@
+
+.include TSMC_180nm.txt
+
+.include mux.sub
+
+.param SUPPLY = 1.8
+.param LAMBDA = 0.18u
+
+.param wn1 = {10*LAMBDA}
+.param wn2 = {10*LAMBDA}
+.param ln1 = {2*LAMBDA}
+.param ln2 = {2*LAMBDA}
+
+.param wp1 = wn1
+.param wp2 = wn1
+.param lp1 = {LAMBDA}
+.param lp2 = {LAMBDA}
+.param S0 = 0
+.param S1 = 1
+.param enable = 1
+.global gnd vdd
+
+Vdd vdd gnd 'SUPPLY'
+
+V_in_a A1 gnd PULSE(0 1.8 20ns 100ps 100ps 10ns 40ns)
+V_in_b A2 gnd PULSE(0 1.8 0ns 100ps 100ps 60ns 120ns)
+Vin_d A3 gnd PULSE(0 1.8 30ns 100ps 100ps 20ns 40ns)
+Vinsd A4 gnd PULSE(0 1.8 30ns 100ps 100ps 50ns 70ns)
+V_isd B1 gnd PULSE(0 SUPPLY 0ns 0.1n 0.1n 10n 20n)
+V_in_ba B2 gnd PULSE(0 1.8 0ns 100ps 100ps 35ns 70ns)
+Vinad B3 gnd PULSE(0 1.8 30ns 100ps 100ps 20ns 60ns)
+Vinas B4 gnd PULSE(0 1.8 15ns 100ps 100ps 50ns 70ns)
+
+
+
+X1 y4 y3 y2 y1 y0 A4 A3 A2 A1 B4 B3 B2 B1 S1 S0 enable vdd gnd mux
+
+.tran 0.1n 120n
+
+.control
+
+run
+set color0 = rgb:f/f/e
+set color1 = black
+plot v(y4) v(y3)+2 v(y2)+4 v(y1)+6 v(y0)+8 v(A4)+13 v(A3)+15 v(A2)+17 v(A1)+19 v(B4)+24 v(B3)+26 v(B2)+28 v(B1)+30
+
+.end
+.endc
+

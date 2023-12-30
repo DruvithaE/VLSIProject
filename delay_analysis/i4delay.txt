@@ -1,0 +1,96 @@
+input = a0 output = y0
+tpd                 =  2.33564e-09
+
+input = a0 output = y1
+tpd                 =  2.36815e-09
+
+input = a0 output = y2
+tpd                 =  2.40550e-09
+
+input = a0 output = y3
+tpd                 =  2.12758e-09
+
+input = a1 output = y0
+tpd                 =  2.33564e-09
+
+input = a1 output = y1
+tpd                 =  2.36815e-09
+
+input = a1 output = y2
+tpd                 =  2.40550e-09
+
+input = a1 output = y3
+tpd                 =  2.12758e-09
+
+input = a2 output = y0
+tpd                 =  2.33564e-09
+
+input = a2 output = y1
+tpd                 =  2.36815e-09
+
+input = a2 output = y2
+tpd                 =  2.40550e-09
+
+input = a2 output = y3
+tpd                 =  2.12758e-09
+
+input = a3 output = y0
+tpd                 =  2.33564e-09
+
+input = a3 output = y1
+tpd                 =  2.36815e-09
+
+input = a3 output = y2
+tpd                 =  2.40550e-09
+
+input = a3 output = y3
+tpd                 =  2.12758e-09
+
+input = b0 output = y0
+tpd                 =  2.33564e-09
+
+input = b0 output = y1
+tpd                 =  2.36815e-09
+
+input = b0 output = y2
+tpd                 =  2.40550e-09
+
+input = b0 output = y3
+tpd                 =  2.12758e-09
+
+input = b1 output = y0
+tpd                 =  2.33564e-09
+
+input = b1 output = y1
+tpd                 =  2.36815e-09
+
+input = b1 output = y2
+tpd                 =  2.40550e-09
+
+input = b1 output = y3
+tpd                 =  2.12758e-09
+
+input = b2 output = y0
+tpd                 =  2.33564e-09
+
+input = b2 output = y1
+tpd                 =  2.36815e-09
+
+input = b2 output = y2
+tpd                 =  2.40550e-09
+
+input = b2 output = y3
+tpd                 =  2.12758e-09
+
+input = b3 output = y0
+tpd                 =  2.33564e-09
+
+input = b3 output = y1
+tpd                 =  2.36815e-09
+
+input = b3 output = y2
+tpd                 =  2.40550e-09
+
+input = b3 output = y3
+tpd                 =  2.12758e-09
+

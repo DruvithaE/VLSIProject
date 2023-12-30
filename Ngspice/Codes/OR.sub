@@ -1,0 +1,6 @@
+.subckt OR a b out vdd gnd
+    .include NOR.sub
+    .include INV.sub
+    X1 a b x vdd gnd NOR
+    X2 x out vdd gnd INV
+.ends OR

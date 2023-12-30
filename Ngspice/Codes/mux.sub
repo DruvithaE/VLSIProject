@@ -1,0 +1,41 @@
+.subckt mux y4 y3 y2 y1 y0 p4 p3 p2 p1 pb4 pb3 pb2 b1 S1 S0 enable vdd gnd
+
+    .include AND.sub
+    .if (enable == 1):
+        X4 p1 vdd a1 vdd gnd AND
+        X5 p2 vdd a2 vdd gnd AND
+        X6 p3 vdd a3 vdd gnd AND
+        X7 p4 vdd a4 vdd gnd AND
+        X8 pb1 vdd b1 vdd gnd AND
+        X9 pb2 vdd b2 vdd gnd AND
+        X10 pb3 vdd b3 vdd gnd AND
+        X11 pb4 vdd b4 vdd gnd AND
+    .else:
+        X41 p1 gnd a1 vdd gnd AND
+        X51 p2 gnd a2 vdd gnd AND
+        X61 p3 gnd a3 vdd gnd AND
+        X71 p4 gnd a4 vdd gnd AND
+        X81 pb1 gnd b1 vdd gnd AND
+        X91 pb2 gnd b2 vdd gnd AND
+        X101 pb3 gnd b3 vdd gnd AND
+        X111 pb4 gnd b4 vdd gnd AND
+    .endif
+
+    .include addsub.sub
+    .include comp.sub
+    .include andg.sub
+    .if (S1 == 0 && enable == 1):
+        X1 y4 y3 y2 y1 y0 a4 a3 a2 a1 b4 b3 b2 b1 S0 vdd gnd addsub
+    .elseif (S1 == 1 && S0 == 0 && enable==1):
+        X2 y4 y3 y2 y1 y0 a4 a3 a2 a1 b4 b3 b2 b1 vdd gnd comp
+    .elseif (S1==1 && S0 ==1 && enable==1):
+        X3 y4 y3 y2 y1 y0 a4 a3 a2 a1 b4 b3 b2 b1 vdd gnd andg
+    .elseif (enable == 0):
+        X12 gnd gnd y4 vdd gnd AND
+        X13 gnd gnd y3 vdd gnd AND
+        X14 gnd gnd y2 vdd gnd AND
+        X15 gnd gnd y1 vdd gnd AND
+        X17 gnd gnd y0 vdd gnd AND
+    .endif
+
+.ends mux
